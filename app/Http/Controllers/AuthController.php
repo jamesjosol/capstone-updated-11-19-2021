@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -46,13 +47,26 @@ class AuthController extends Controller
             'remember_token'    => $token,
         ]);
 
-        // Mail::send('verification-email', ['user'=>$user], function($mail) use ($user){
+        // Mail::send('mail.verification-email', ['user'=>$user], function($mail) use ($user){
         //     $mail->to($user->email);
         //     $mail->subject('Account Verification');
-        //     $mail->from('dummy.james69@gmail.com', 'IPT Systems');
+        //     $mail->from('salusenrollmentsystem@gmail.com', 'Salus Enrollment System');
         // });   
 
         return redirect('/login')->with('Message', 'Your account has been created. Please check your email for the verification.');
+    }
+
+    public function verification(User $user, $token) {
+        dd('wew');
+        if($user->remember_token!==$token) {
+            // return back()->with('Error', 'The token is invalid.');
+        }
+
+        $user->email_verified_at = now();
+        $user->save();
+
+        dd('wew');
+        // return back()->with('Message', 'Your account has been verified.');
     }
 
     public function logout(Request $request) {

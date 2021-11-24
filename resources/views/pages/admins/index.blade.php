@@ -7,7 +7,7 @@
 <div class="wrapper">
 	
     @include('component.sidebar')
-
+    @include('component.info_msg')
     <div class="dashboard-content">
         <div class="text">
             <h4>Hi ADMIN: {{ auth()->user()->firstName }}</h4>

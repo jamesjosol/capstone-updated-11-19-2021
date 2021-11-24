@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\EmailVerificationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::get('/about', [SiteController::class, 'about']);
 Route::get('/dashboard', [SiteController::class, 'dashboard']);
 
 Auth::routes();
+
+Route::get('/verification/{user}/{token}', [EmailVerificationController::class, 'verification']);
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');

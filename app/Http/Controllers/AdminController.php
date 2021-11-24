@@ -86,7 +86,7 @@ class AdminController extends Controller
         }
         
     
-        return redirect()->route('admin.users')->with('Message', "User [#ID$request->id] has been successfully updated.");
+        return redirect()->route('admin.users')->with('Message', "User [ID #$request->id] has been successfully updated.");
     }
 
     public function deleteUser(Request $request) {
@@ -94,7 +94,7 @@ class AdminController extends Controller
         $id = $request->id;
         $user->delete();
 
-        return redirect()->route('admin.users')->with('Message', "User [#ID$id] has been successfully deleted.");
+        return redirect()->route('admin.users')->with('Message', "User [ID #$id] has been successfully deleted.");
     }
 
     public function showStudents() {
@@ -236,7 +236,7 @@ class AdminController extends Controller
         
         $student->update($request->all());
 
-        return redirect()->route('admin.students')->with('Message', "Student [#ID$student->id] has been successfully updated.");
+        return redirect()->route('admin.students')->with('Message', "Student [ID #$student->id] has been successfully updated.");
     }
 
 
@@ -245,7 +245,7 @@ class AdminController extends Controller
         $id = $request->id;
         $student->delete();
 
-        return redirect()->route('admin.students')->with('Message', "Student [#ID$id] has been successfully deleted.");
+        return redirect()->route('admin.students')->with('Message', "Student [ID #$id] has been successfully deleted.");
     }
 
 
@@ -287,7 +287,7 @@ class AdminController extends Controller
 
         $teacher->update($request->all());
         
-        return redirect()->route('admin.teachers')->with('Message', "Teacher [#ID$request->id] has been successfully updated.");
+        return redirect()->route('admin.teachers')->with('Message', "Teacher [ID #$request->id] has been successfully updated.");
     }
 
 
@@ -296,7 +296,7 @@ class AdminController extends Controller
         $id = $request->id;
         $teacher->delete();
 
-        return redirect()->route('admin.teachers')->with('Message', "Teacher [#ID$id] has been successfully deleted.");
+        return redirect()->route('admin.teachers')->with('Message', "Teacher [ID #$id] has been successfully deleted.");
     }
 
 
@@ -331,7 +331,7 @@ class AdminController extends Controller
 
         $subject->update($request->all());
 
-        return redirect()->route('admin.subjects')->with('Message', "Subject [#ID$request->id] has been successfully updated.");
+        return redirect()->route('admin.subjects')->with('Message', "Subject [ID #$request->id] has been successfully updated.");
     }
 
     public function deleteSubject(Request $request) {
@@ -339,7 +339,7 @@ class AdminController extends Controller
         $id = $request->id;
         $subject->delete();
 
-        return redirect()->route('admin.subjects')->with('Message', "Subject [#ID$id] has been successfully deleted.");
+        return redirect()->route('admin.subjects')->with('Message', "Subject [ID #$id] has been successfully deleted.");
     }
 
     public function showSections() {
@@ -427,7 +427,7 @@ class AdminController extends Controller
 
         $class->update($request->all());
 
-        return redirect()->route('admin.classes')->with('Message', "Class [#ID$request->id] has been successfully updated.");
+        return redirect()->route('admin.classes')->with('Message', "Class [ID #$request->id] has been successfully updated.");
     }
 
     public function deleteClass(Request $request) {
@@ -435,7 +435,7 @@ class AdminController extends Controller
         $id = $request->id;
         $class->delete();
 
-        return redirect()->route('admin.classes')->with('Message', "Section [#ID$id] has been successfully deleted.");
+        return redirect()->route('admin.classes')->with('Message', "Section [ID #$id] has been successfully deleted.");
     }
 
     public function showSchoolYear() {

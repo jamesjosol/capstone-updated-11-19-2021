@@ -23,7 +23,7 @@
 
 @endif
 
-@if(Session::get('status') == 'We have emailed your password reset link!' || Session::get('status') == 'Your password has been reset!')
+@if(Session::get('status') == 'We have emailed your password reset link!' || Session::get('status') == 'Your password has been reset!' || Session::get('status') == 'Your account has been verified.')
 {{$message = Session::get('status')}}
 <script>
     $(document).ready(function(){
