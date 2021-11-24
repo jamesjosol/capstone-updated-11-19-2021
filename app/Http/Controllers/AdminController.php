@@ -460,7 +460,7 @@ class AdminController extends Controller
 
     public function updateSchoolYear(Request $request) {
         $request->validate([
-            'id'                    => 'required|numeric',
+            'id'    => 'required|numeric',
         ]);
 
         $schoolyear = SchoolYear::find($request->id);

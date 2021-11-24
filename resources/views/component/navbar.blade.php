@@ -23,7 +23,7 @@
                     <li class="nav-item">
                         <a class="nav-link box{{ Request::is('about') ? '-nav-item-active' : '' }}" href="{{ url('/about') }}">About Us</a>
                     </li>
-                    @if (Request::is('/') || Request::is('about') ||  Request::is('login') || Request::is('register'))
+                    @if (Request::is('/') || Request::is('about') ||  Request::is('login') || Request::is('register') || Request::is('password/reset') || Request::is('password/reset/*'))
                     
                         @if (auth()->check())
                             @if (auth()->user()->role == 1)

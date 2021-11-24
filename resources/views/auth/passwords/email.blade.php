@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+@include('component.info_msg')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,25 +19,21 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
+                        <div class="row">
+                            <div class="col-md-6 offset-3">
+                                <h4 class="card-title mb-3">Forgot Password</h4>
+                                <div class="mb-3 form-group @error('email') has-error @enderror">
+                                    {!! Form::label('email','Email Address',[],false) !!}
+                                    @error('email')<span class="errspanicon" id="errspanicon"><i class="fal fa-exclamation-circle"></i></span>@enderror
+                                    {!! Form::text('email', null, ['class'=>'form-control', 'id'=>'email','required' => '']) !!}
+                                    <span class="errspan" id="errspan">{{ $errors->first('email') }}</span>
+                                </div>
+        
+                                <div class="form-group m-0">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        Send Password Link
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>

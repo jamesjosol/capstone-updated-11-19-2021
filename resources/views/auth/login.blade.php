@@ -29,7 +29,7 @@
                                 <span class="errspan" id="errspan">{{ $errors->first('username') }}</span>
                             </div>
 
-                            <a class="float-right text-primary" href="">forgot password?</a><br>
+                            <a class="float-right text-primary" href="{{ route('password.request') }}">forgot password?</a><br>
 
                             <div class="mb-3 form-group @error('password') has-error @enderror">
                                 {!! Form::label('password', 'Password',[],false) !!}

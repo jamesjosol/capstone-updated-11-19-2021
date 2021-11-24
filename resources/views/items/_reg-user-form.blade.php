@@ -41,7 +41,6 @@
     @error('password_confirmation')<span class="errspanicon" id="errspanicon"><i class="fal fa-exclamation-circle"></i></span>@enderror
     {!! Form::password('password_confirmation', ['class'=>'form-control','required' => '']) !!}
     <span class="errspan" id="errspan">{{ $errors->first('password_confirmation') }}</span>
-    
 </div>
 <div class="mb-3 form-group @error('contactNo') has-error @enderror">
     {!! Form::label('contactNo', 'Mobile Number',[],false) !!}

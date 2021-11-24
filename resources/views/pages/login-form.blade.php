@@ -24,7 +24,7 @@
                                 <span class="errspan" id="errspan">{{ $errors->first('username') }}</span>
                             </div>
 
-                            <a class="float-right" href="">forgot password?</a><br>
+                            <a class="float-right" href="{{ route('password.request') }}">forgot password?</a><br>
 
                             <div class="mb-3 form-group @error('password') has-error @enderror">
                                 {!! Form::label('password', 'Password',[],false) !!}
@@ -44,6 +44,7 @@
 
                             <p style="margin-top:1rem;">Don't have an account yet?</p>
                             <p style="margin-top:-1rem;">Click <a href="/register">Register</a></p>
+                            
                         {!! Form::close() !!}
                     </div>
                 </div>
